@@ -31,6 +31,7 @@ const quotes = [
         "quote":"To create is to live twice.",
         "author": "Albert Camus"
     }
+    
 ]
 
 export default quotes

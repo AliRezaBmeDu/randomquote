@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {Fragment, useState} from 'react'
 //import {Box, Button} from '@mui/material'
 import quotes from './quoteDB.jsx'
 
@@ -7,7 +7,7 @@ const randomNum = (count) => {
   let x = Math.floor(size*Math.random());
   console.log(quotes)
   if (x === count){
-    return x+1;
+    return randomNum(x);
   }else{
     return x
   }
@@ -16,19 +16,18 @@ const randomQuote = (count) => {
   return quotes[count]
 }
 
-function QuoteBox () {
+export default function QuoteBox () {
   let [count, setCount] = useState(0);
   return (
-    <div>
-      <div style={{background:"lightblue", color:"black", }}>
-        <p style= {{fontWeight: 'bold'}}>{randomQuote(count).quote}</p>
-        <p style= {{fontStyle: 'italic'}}>- {randomQuote(count).author}</p>
+    <Fragment className="container">
+      <div style={{background:"lightblue", color:"black"}}>
+        <h2 id="text" style= {{fontWeight: 'bold'}}>{randomQuote(count).quote}</h2>
+        <h3 id="author" style= {{fontStyle: 'italic'}}>- {randomQuote(count).author}</h3>
+        <a id="tweet-quote" target="_blank" href="twitter.com/intent/tweet">tweet the quote</a>
       </div>
-      <button onClick={() => setCount(randomNum(count))} >
-        Generate
+      <button id="new-quote" style={{background:"yellow"}} onClick={() => setCount(randomNum(count))} >
+        Generate New Quote
       </button>
-    </div>
-  )
+    </Fragment>
+  );
 }
-
-export default QuoteBox

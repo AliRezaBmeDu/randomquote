@@ -9,7 +9,7 @@ function App() {
         <h1>Random Quote</h1>
       </div>
       <div>
-        <QuoteBox />
+        <QuoteBox id ="quote-box"/>
       </div>
     </div>
   )
