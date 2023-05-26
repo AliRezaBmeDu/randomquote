@@ -1,5 +1,6 @@
 import './App.css';
-import {quoteGen} from './components/quoteGen.js'
+import QuoteBox from './components/QuoteBox.jsx'
+
 
 function App() {
   return (
@@ -7,9 +8,11 @@ function App() {
       <div className="heading" style={{background: "green", color:"white", position: "center"}}>
         <h1>Random Quote</h1>
       </div>
-      
+      <div>
+        <QuoteBox />
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
